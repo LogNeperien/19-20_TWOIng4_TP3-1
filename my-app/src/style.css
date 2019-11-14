@@ -6,3 +6,9 @@ button {
 	margin-left : 10px;
 	float : right;
 }
+
+.Profil {
+	float : center;
+	background-color : blue;
+	color : white;
+}
