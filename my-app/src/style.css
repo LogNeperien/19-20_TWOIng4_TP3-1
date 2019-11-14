@@ -24,6 +24,15 @@ header {
 
 article {
 	float: center;
+	margin: auto;
+	text-align : center;
 	background-color : green;
 	margin-top : 50px;
+	border-style: solid;
+	width : 750px;
+}
+
+img {
+	height : 100px;
+	border-radius:50px;
 }

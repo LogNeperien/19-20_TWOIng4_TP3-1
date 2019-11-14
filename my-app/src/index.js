@@ -2,32 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import Database from './Database';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-/*class AllProfil extends React.Component{
-	constructor(props) {
-		super(props);
-		this.state = {profils : Database};	
-	}
-	
-	render () {	
-		return (
-			<header>
-				<button className="Personn" onClick={this.props.handleChange1}>
-					{this.state.profils[0].prenom}
-				</button>
-		
-				<button className="Personn" onClick={this.props.handleChange2}>
-					{this.state.profils[1].prenom}
-				</button>
-				
-				<button className="Personn" onClick={this.props.handleChange3}>
-					{this.state.profils[2].prenom}
-				</button>
-			</header>
-		  );
-	}
-}*/
 
 class Profil extends React.Component{
 	
@@ -41,6 +17,10 @@ class Profil extends React.Component{
 		return (
 			<div>
 				<article>
+					<br/>
+					<img src={Database[this.props.id].picture}/>
+					<br/>
+					<br/>
 				   {Database[this.props.id].prenom}<span class="tabulation">{Database[this.props.id].nom}</span>
 				   <br/>
 				   {Database[this.props.id].date}
