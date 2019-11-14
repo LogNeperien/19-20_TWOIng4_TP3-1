@@ -33,7 +33,7 @@ class Profil extends React.Component{
 	
 	constructor(props) {
 		super(props);
-		this.state = {profils : Database, ProfilCo : 0};	
+		this.state = {profils : Database};	
 	}
 	
 	
@@ -41,14 +41,14 @@ class Profil extends React.Component{
 		return (
 			<div>
 				<article>
-				   {this.state.profils[this.state.ProfilCo].prenom}<span class="tabulation">{this.state.profils[this.state.ProfilCo].nom}</span>
+				   {Database[this.props.id].prenom}<span class="tabulation">{Database[this.props.id].nom}</span>
 				   <br/>
-				   {this.state.profils[this.state.ProfilCo].date}
+				   {Database[this.props.id].date}
 				</article>
 				<article>
-					{this.state.profils[this.state.ProfilCo].description}
+					{Database[this.props.id].description}
 					<br/>
-					{this.state.profils[this.state.ProfilCo].like}
+					{Database[this.props.id].like}
 				</article>
 			</div>
 		  );
@@ -69,7 +69,7 @@ class AllPage extends React.Component{
 	handleClickButton(i)
 	{
 		this.setState(
-		  {num : i}
+		  {ProfilCo : i}
 		)
 	}
 	
@@ -90,7 +90,7 @@ class AllPage extends React.Component{
 			{this.renderAllProfil(2)}
 			</div>
 			<div className="info-profil">
-			  <Profil/>
+			  <Profil id={this.state.ProfilCo}/>
 			</div>
 		  </div>
     );
