@@ -2,28 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import Database from './Database';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-class AllProfil extends React.Component{
-	
+/*class AllProfil extends React.Component{
+	constructor(props) {
+		super(props);
+		this.state = {profils : Database};	
+	}
 	
 	render () {	
 		return (
-			<div>
-				<button className="Personn" /*onClick={this.props.onClick}*/>
-					Bob
+			<header>
+				<button className="Personn" onClick={this.props.handleChange1}>
+					{this.state.profils[0].prenom}
 				</button>
 		
-				<button className="Personn" /*onClick={this.props.onClick}*/>
-					Amadeus
+				<button className="Personn" onClick={this.props.handleChange2}>
+					{this.state.profils[1].prenom}
 				</button>
 				
-				<button className="Personn" /*onClick={this.props.onClick}*/>
-					Angele
+				<button className="Personn" onClick={this.props.handleChange3}>
+					{this.state.profils[2].prenom}
 				</button>
-			</div>
+			</header>
 		  );
 	}
-}
+}*/
 
 class Profil extends React.Component{
 	
@@ -32,10 +36,20 @@ class Profil extends React.Component{
 		this.state = {profils : Database, ProfilCo : 0};	
 	}
 	
+	
 	render () {	
 		return (
 			<div>
-			   {this.state.profils[0].nom}
+				<article>
+				   {this.state.profils[this.state.ProfilCo].prenom}<span class="tabulation">{this.state.profils[this.state.ProfilCo].nom}</span>
+				   <br/>
+				   {this.state.profils[this.state.ProfilCo].date}
+				</article>
+				<article>
+					{this.state.profils[this.state.ProfilCo].description}
+					<br/>
+					{this.state.profils[this.state.ProfilCo].like}
+				</article>
 			</div>
 		  );
 	}
@@ -45,11 +59,35 @@ class Profil extends React.Component{
 
 class AllPage extends React.Component{
 	
+	constructor(props) {
+		super(props);
+		this.state = {ProfilCo : 0};
+
+		this.handleClickButton = this.handleClickButton.bind(this);
+	}
+	
+	handleClickButton(i)
+	{
+		this.setState(
+		  {num : i}
+		)
+	}
+	
+	renderAllProfil(i)
+	{
+		return (
+		<button className="Personn" onClick={() => this.handleClickButton(i)}>
+		   {Database[i].prenom} 
+		</button>);
+	}
+	
 	render() {
         return (
 		  <div className="page">
 			<div className="navigation">
-			  <AllProfil/>
+			{this.renderAllProfil(0)}
+			{this.renderAllProfil(1)}
+			{this.renderAllProfil(2)}
 			</div>
 			<div className="info-profil">
 			  <Profil/>

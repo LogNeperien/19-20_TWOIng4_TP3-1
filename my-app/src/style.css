@@ -7,8 +7,23 @@ button {
 	float : right;
 }
 
-.Profil {
+.Profil{
 	float : center;
 	background-color : blue;
 	color : white;
+}
+
+.tabulation {
+	margin-left: 20px;
+}
+
+header {
+	float : top;
+
+}
+
+article {
+	float: center;
+	background-color : green;
+	margin-top : 50px;
 }
