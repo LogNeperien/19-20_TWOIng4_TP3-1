@@ -9,23 +9,33 @@ class Profil extends React.Component{
 	
 	constructor(props) {
 		super(props);
-		this.state = {profils : Database};	
+		this.state = {random : 0};	
 	}
 	
+	handleClickColor() {
+		this.setState({random : Math.round(Math.random() * (6))});
+	}
 	
 	render () {	
+		const color = ["article1","article2","article3","article4","article5","article6"];
+		console.log("random : ",this.state.random);
 		return (
 			<div>
-				<article>
+				<article className= {color[this.state.random]}>
 					<br/>
 					<img src={Database[this.props.id].picture}/>
 					<br/>
 					<br/>
-				   {Database[this.props.id].prenom}<span class="tabulation">{Database[this.props.id].nom}</span>
+				   {Database[this.props.id].prenom}<span className="tabulation">{Database[this.props.id].nom}</span>
 				   <br/>
 				   {Database[this.props.id].date}
+				   <br/>
+				   <br/>
+					<button className="Coloris" onClick={() => this.handleClickColor()}>Changer de style</button>
+					
 				</article>
-				<article>
+				
+				<article className= {color[this.state.random]}>
 					{Database[this.props.id].description}
 					<br/>
 					{Database[this.props.id].like}
@@ -64,14 +74,14 @@ class AllPage extends React.Component{
 	render() {
         return (
 		  <div className="page">
-			<div className="navigation">
+			<header>
 			{this.renderAllProfil(0)}
 			{this.renderAllProfil(1)}
 			{this.renderAllProfil(2)}
-			</div>
-			<div className="info-profil">
+			</header>
+			<main>
 			  <Profil id={this.state.ProfilCo}/>
-			</div>
+			</main>
 		  </div>
     );
   }
@@ -83,22 +93,3 @@ ReactDOM.render(
   <AllPage />,
   document.getElementById('root')
 );
-
-const profils = [
-	{
-		prenom: "Bob",
-		nom : "Marley",
-		date : "06/02/1945",
-	},
-	{
-		prenom: "Wolfgang",
-		nom : "Mozart",
-		date : "27/01/1756",
-	},
-	{
-		prenom: "Angele",
-		nom : "VanLaeken",
-		date : "02/12/1995",
-	}
-];
-

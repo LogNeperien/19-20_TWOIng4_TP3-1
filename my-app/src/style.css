@@ -7,19 +7,22 @@
 	float : right;
 }*/
 
-.Profil{
-	float : center;
-	background-color : blue;
-	color : white;
-}
 
 .tabulation {
-	margin-left: 20px;
+	margin-left: 50px;
 }
 
-header {
-	float : right;
+header{
+	margin-right : 40px;
+	margin-top : 0;
+	float : center;
+}
 
+
+.Personn {
+	float: right;
+	margin-right: 40px;
+	margin-left: 40px;
 }
 
 article {
@@ -29,10 +32,38 @@ article {
 	background-color : green;
 	margin-top : 50px;
 	border-style: solid;
-	width : 750px;
+	width : 500px;
+	font-size : 1.5em;
+}
+
+.article1 {
+	background-color : rgba(196, 196, 196, 0.25);
+}
+.article2 {
+	background-color : rgba(212, 27, 27, 1);
+}
+.article3 {
+	background-color : rgba(212, 116, 27, 1);
+}
+.article4 {
+	background-color : rgba(175, 140, 203, 1);
+}
+.article5 {
+	background-color : rgba(140, 203, 200, 1);
+}
+.article6 {
+	background-color : rgba(236, 187, 228, 1);
+}
+
+main {
+	margin-top : 100px;
 }
 
 img {
 	height : 100px;
 	border-radius:50px;
+}
+
+.Coloris{
+	font-size : 0.5em;
 }
